@@ -1,8 +1,6 @@
 import * as path from 'path';
-import fs from 'fs-extra';
 
 const downloadPath = './downloads';
-
 global.downloadDir = path.resolve(downloadPath);
 
 export const config = {
@@ -13,7 +11,7 @@ export const config = {
     ],
     
     capabilities: [{
-        maxInstances: 10,
+        maxInstances: 7,
         browserName: 'chrome',
         'goog:chromeOptions' : {
             prefs: {
@@ -51,9 +49,8 @@ export const config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-     onPrepare: function () {
-        fs.ensureDirSync(downloadDir);
-     },
+    // onPrepare: function () {
+    // },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -72,9 +69,8 @@ export const config = {
      * @param  {object} specs    specs to be run in the worker process
      * @param  {number} retries  number of retries used
      */
-     onWorkerEnd: function () {
-        fs.emptyDirSync(downloadDir);
-     },
+    // onWorkerEnd: function () {
+    // },
     /**
      * Gets executed just before initialising the webdriver session and test framework. It allows you
      * to manipulate configurations depending on the capability or spec.

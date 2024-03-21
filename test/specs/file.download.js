@@ -5,6 +5,10 @@ import * as fs from 'fs';
 const fileName = "test.txt"
 
 describe('File Download test', () => {
+    before('create downloads folder', async () => {
+        fs.mkdirSync(global.downloadDir)
+    })
+
     it('file should be downloaded to the default downloads directory', async () => {
         await $('[href="/download"]').click()
 
@@ -18,4 +22,6 @@ describe('File Download test', () => {
         
         await expect(fs.existsSync(downloadedFilePath)).toBeTruthy()
     })
+
+    //after execution delete downloadDir folder with all content 
 })

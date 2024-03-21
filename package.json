@@ -1,5 +1,5 @@
 {
-  "name": "ExampleProject",
+  "name": "WebdriverIO",
   "type": "module",
   "devDependencies": {
     "@wdio/cli": "^8.33.1",
