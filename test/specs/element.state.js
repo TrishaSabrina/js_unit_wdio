@@ -8,7 +8,7 @@ describe('Dynamic Controls test', () => {
 
         await $('//button[text() = "Enable"]').click()
         
-        var inputField = await $('#input-example input')
+        let inputField = await $('#input-example input')
         //expect that inputField is enabled
 
         //input randomString into inputField

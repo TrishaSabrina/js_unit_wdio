@@ -11,7 +11,7 @@ describe('File Upload test', () => {
         //upload file wih fullPathToFile path
         await $('[id="file-submit"]').click()
 
-        var uploadedFiles = await $('[id="uploaded-files"]').getText()
+        let uploadedFiles = await $('[id="uploaded-files"]').getText()
         //expect that fileName on Upload page is correct
     })
 })

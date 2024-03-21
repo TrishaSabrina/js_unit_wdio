@@ -12,11 +12,11 @@ describe('File Download test', () => {
     it('file should be downloaded to the default downloads directory', async () => {
         await $('[href="/download"]').click()
 
-        var fileLink = await $(`[href="download/${fileName}"]`)
+        let fileLink = await $(`[href="download/${fileName}"]`)
         await expect(fileLink).toExist()
 
         await fileLink.click()
-        var downloadedFilePath = path.join(global.downloadDir, fileName)
+        let downloadedFilePath = path.join(global.downloadDir, fileName)
 
         //wait until the file is fully downloaded along a specific downloadedFilePath
         
