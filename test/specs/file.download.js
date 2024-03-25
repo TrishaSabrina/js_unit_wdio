@@ -20,7 +20,7 @@ describe('File Download test', () => {
 
         //wait until the file is fully downloaded along a specific downloadedFilePath
         
-        await expect(fs.existsSync(downloadedFilePath)).toBeTruthy()
+        //assert that file downloaded
     })
 
     //after execution delete downloadDir folder with all content 

@@ -17,7 +17,7 @@ export const config = {
             prefs: {
                 download: {
                     'default_directory': downloadDir,
-                    'directory_upgrade': true,
+                    'directory_upgrade': false,
                     'promt_for_download': false
                 }
             }
