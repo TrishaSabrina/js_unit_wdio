@@ -11,13 +11,19 @@ describe('iFrame test', () => {
         const iframe = await $('iframe#mce_0_ifr')
         
         //add text to the input field
+        await browser.switchToFrame(iframe)
+       await $('[id ="tinymce"]').addValue(randomString)
 
         await expect($(`//*[text() = '${initText}${randomString}']`)).toExist()
 
+        await browser.switchToParentFrame()
         await $('//*[text()="Edit"]').click()
         //undo changes 
+        await $('//div[@title ="Undo"]').click()
         
         //expect that initText is displayed in the editor
+        await browser.switchToFrame(iframe)
+        await expect($(`//*[text() = '${initText}']`)).toExist()
     })
 })
 
