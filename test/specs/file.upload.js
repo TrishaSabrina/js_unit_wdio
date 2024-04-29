@@ -9,9 +9,11 @@ describe('File Upload test', () => {
         await $('[href="/upload"]').click()
 
         //upload file wih fullPathToFile path
+        (await $('[id="file-upload"]')).setValue(fullPathToFile)
         await $('[id="file-submit"]').click()
 
         let uploadedFiles = await $('[id="uploaded-files"]').getText()
         //expect that fileName on Upload page is correct
+         expect(uploadedFiles).toEqual(fileName)
     })
 })
