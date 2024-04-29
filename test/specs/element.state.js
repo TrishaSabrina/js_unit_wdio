@@ -10,10 +10,15 @@ describe('Dynamic Controls test', () => {
         
         let inputField = await $('#input-example input')
         //expect that inputField is enabled
+        
+         expect(await inputField.isEnabled()).toBe(true);
 
         //input randomString into inputField
+        await inputField.setValue(randomString);
 
         //expect that randomString is displayed
+        const inputValue = await inputField.getValue();
+        expect(inputValue).toEqual(randomString);
     })
 })
 
