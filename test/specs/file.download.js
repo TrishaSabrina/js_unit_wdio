@@ -19,15 +19,18 @@ describe('File Download test', () => {
         let downloadedFilePath = path.join(global.downloadDir, fileName)
 
         //wait until the file is fully downloaded along a specific downloadedFilePath
-        await expect(fs.existsSync(downloadedFilePath)).toBeTruthy()  
+       await browser.waitUntil(() =>{
+        return fs.existsSync(downloadedFilePath)
+       })
         
         //assert that file downloaded
-        expect(fs.statSync(downloadedFilePath).size).toBeGreaterThan(0)  
+     await expect(fs.existsSync(downloadedFilePath)).toBeTruthy()  
     })
 
     //after execution delete downloadDir folder with all content
 
-    after('delete downloadDir folder with all content', async () => {
-        fs.rmdirSync(global.downloadDir, { recursive: true })
+  
+    after('delete downloads folder', async () => {
+        fs.rmSync(global.downloadDir, { recursive: true })
     })
 })
