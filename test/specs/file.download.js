@@ -20,8 +20,8 @@ describe('File Download test', () => {
 
         //wait until the file is fully downloaded along a specific downloadedFilePath
        await browser.waitUntil(() =>{
-        return fs.existsSync(downloadedFilePath)
-       })
+        return fs.existsSync(downloadedFilePath);
+       });
         
         //assert that file downloaded
      await expect(fs.existsSync(downloadedFilePath)).toBeTruthy()  
