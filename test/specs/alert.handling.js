@@ -11,9 +11,7 @@ describe('Alert Handling test', () => {
         await browser.acceptAlert(); 
 
         //expect that successfulMessage is displayed
-        const messageElement = await $('div#result');
-        const messageText = await messageElement.getText();
-        expect(messageText).to.equal(successfulMessage);
+       await expect($('[id = "result"]')).toHaveText(successfulMessage)
         
     })
 })
